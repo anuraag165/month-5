@@ -4,9 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Raveena - My Special Someone</title>
+    <title>For Raveena - My Special Book</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
+
+        :root {
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --accent: #ef4444;
+        }
 
         body {
             margin: 0;
@@ -21,76 +27,88 @@
             overflow-x: hidden;
         }
 
-        .container {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            width: 90%;
+        .book {
+            width: 95%;
             max-width: 800px;
-            padding: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid #e0f2fe;
-            transform: scale(0.95);
-            animation: container-enter 1s ease-out forwards;
+            perspective: 1500px;
+            margin: 20px 0;
         }
 
-        @keyframes container-enter {
-            to {
-                transform: scale(1);
-            }
+        .page {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e0f2fe;
+        }
+
+        .page:last-child {
+            margin-bottom: 0;
         }
 
         h1 {
             font-family: 'Dancing Script', cursive;
-            color: #3b82f6;
-            font-size: 4rem;
+            color: var(--primary);
+            font-size: 3rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            animation: title-float 3s ease-in-out infinite alternate;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        @keyframes title-float {
-            to {
-                transform: translateY(-5px);
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 4rem;
             }
         }
 
         .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #4b5563;
             margin-bottom: 30px;
-            animation: subtitle-fade 2s ease-in;
+            text-align: center;
         }
 
-        @keyframes subtitle-fade {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary);
+            transition: transform 0.3s;
+        }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title i {
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
 
         .doctor-container {
-            width: 200px;
-            height: 200px;
+            width: 100%;
+            max-width: 250px;
+            height: 250px;
             margin: 20px auto;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             position: relative;
-            animation: doctor-float 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes doctor-float {
-            to {
-                transform: translateY(-10px);
-            }
         }
 
         .doctor-gif {
@@ -99,53 +117,8 @@
             object-fit: cover;
         }
 
-        .message {
-            text-align: left;
-            line-height: 1.8;
-            font-size: 1.2rem;
-            margin: 30px 0;
-            padding: 0 20px;
-            position: relative;
-        }
-
-        .message p {
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: message-fade 0.8s ease-out forwards;
-        }
-
-        @keyframes message-fade {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .message p:nth-child(1) {
-            animation-delay: 0.5s;
-        }
-
-        .message p:nth-child(2) {
-            animation-delay: 1s;
-        }
-
-        .message p:nth-child(3) {
-            animation-delay: 1.5s;
-        }
-
-        .message p:nth-child(4) {
-            animation-delay: 2s;
-        }
-
-        .message p:nth-child(5) {
-            animation-delay: 2.5s;
-        }
-
-        .message p:nth-child(6) {
-            animation-delay: 3s;
-        }
-
         .highlight {
-            background: linear-gradient(120deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -153,107 +126,11 @@
             padding: 0 3px;
         }
 
-        .btn {
-            background: linear-gradient(to right, #3b82f6, #8b5cf6);
-            color: white;
-            border: none;
-            padding: 14px 30px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            margin: 20px 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.4);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            animation: btn-pulse 2s infinite;
-        }
-
-        @keyframes btn-pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.6);
-        }
-
-        .signature {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            background: linear-gradient(120deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-top: 20px;
-            display: inline-block;
-            animation: signature-fade 1s ease-out 3.5s forwards;
-            opacity: 0;
-        }
-
-        @keyframes signature-fade {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .semester-box {
-            margin-top: 30px;
-            font-size: 1.2rem;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e0f2fe;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .semester {
-            font-weight: bold;
-            color: #3b82f6;
-            font-size: 1.3rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .semester:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, #3b82f6, #8b5cf6);
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: semester-underline 1s ease-out 4s forwards;
-        }
-
-        @keyframes semester-underline {
-            to {
-                transform: scaleX(1);
-            }
-        }
-
         .heart-beat {
-            font-size: 2.5rem;
             display: inline-block;
             animation: heartbeat 1.5s ease-in-out infinite both;
-            color: #ef4444;
-            margin: 10px 0;
+            color: var(--accent);
+            margin: 0 5px;
         }
 
         @keyframes heartbeat {
@@ -278,13 +155,96 @@
             }
         }
 
+        .gift-box {
+            width: 120px;
+            height: 120px;
+            margin: 30px auto;
+            background: linear-gradient(135deg, #fca5a5 0%, #fecaca 100%);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.05);
+        }
+
+        .gift-box:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right,
+                    rgba(255, 255, 255, 0) 45%,
+                    rgba(255, 255, 255, 0.8) 50%,
+                    rgba(255, 255, 255, 0) 55%);
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            to {
+                transform: translateX(100%) rotate(30deg);
+            }
+        }
+
+        .gift-lid {
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .gift-bow {
+            width: 40px;
+            height: 40px;
+            background: #fecaca;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gift-bow:before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            background: #fca5a5;
+            border-radius: 10px;
+        }
+
+        .gift-bow:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            background: #fca5a5;
+            border-radius: 10px;
+        }
+
         .floating-hearts {
             position: absolute;
             width: 20px;
             height: 20px;
             background: transparent;
             pointer-events: none;
-            z-index: -1;
+            z-index: 10;
         }
 
         .floating-hearts:before,
@@ -309,73 +269,138 @@
             transform-origin: 100% 100%;
         }
 
-        .calm-message {
-            font-size: 1.1rem;
-            color: #4b5563;
-            margin-top: 15px;
-            font-style: italic;
-            animation: calm-fade 2s ease-in 4s forwards;
-            opacity: 0;
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-top: 30px;
+            text-align: right;
+            padding-right: 20px;
         }
 
-        @keyframes calm-fade {
-            to {
+        .music-note {
+            position: absolute;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            opacity: 0;
+            animation: float-note 4s linear infinite;
+        }
+
+        @keyframes float-note {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
                 opacity: 1;
             }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Raveena Sharma</h1>
-        <div class="subtitle">5 Months of Admiring Someone Extraordinary ✨</div>
+    <div class="book">
+        <!-- Cover Page -->
+        <div class="page" id="cover">
+            <h1>For Raveena</h1>
+            <div class="subtitle">5 Months of Knowing Someone Extraordinary ✨</div>
 
-        <div class="doctor-container">
-            <!-- Calming doctor GIF -->
-            <img class="doctor-gif"
-                src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDZ4Z2J0eGJ0d3FmY3R2eGx4ZzR2b2V5ZzN0dGZ6dW5xZ2JmZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HU7ZeB2lByWYZXS/giphy.gif"
-                alt="Calming Doctor">
+            <div class="doctor-container">
+                <img class="doctor-gif" src="https://media.giphy.com/media/l0HU7ZeB2lByWYZXS/giphy.gif"
+                    alt="Calming Doctor">
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <span>To My Cutie Pie</span>
+                </div>
+                <p>This is just a small collection of thoughts, memories, and wishes for you as you begin this important
+                    semester.</p>
+                <p>Tap the gift box when you're ready for a surprise!</p>
+            </div>
+
+            <div class="gift-box" id="giftBox">
+                <div class="gift-lid"></div>
+                <div class="gift-bow"></div>
+            </div>
+
+            <audio id="song" src="song.mp3" preload="auto"></audio>
         </div>
 
-        <div class="message">
-            <p>My dearest <span class="highlight">Cutie Pie</span>,</p>
+        <!-- Page 2 -->
+        <div class="page">
+            <div class="card">
+                <div class="card-title">
+                    <span>My Favorite Things About You</span>
+                </div>
+                <ul style="line-height: 2;">
+                    <li>That <span class="highlight">brilliant mind</span> of yours</li>
+                    <li>How you <span class="highlight">care deeply</span> about everything</li>
+                    <li>Your <span class="highlight">contagious laughter</span></li>
+                    <li>The way you <span class="highlight">light up rooms</span></li>
+                    <li>Your <span class="highlight">determination</span> to succeed</li>
+                </ul>
+            </div>
 
-            <p>As I count these 5 months of knowing you, I realize you're <span class="highlight">unlike anyone</span>
-                I've ever met. Your presence makes my world brighter in ways I can't explain.</p>
-
-            <p>I know you're feeling anxious about tomorrow, but look at this doctor - they're calm because <span
-                    class="highlight">you're prepared</span>. Remember all those nights you studied? That knowledge is
-                <span class="heart-beat">♥</span> already in you!</p>
-
-            <p>You're the most <span class="highlight">brilliant person</span> I know. That sharp mind of yours? It's
-                going to shine tomorrow. The way you <span class="highlight">care deeply</span> about everything? That's
-                your superpower.</p>
-
-            <p>When panic tries to creep in, take a deep breath and remember: <span class="highlight">I believe in
-                    you</span> completely. Not just for exams - for everything. The way you <span
-                    class="highlight">light up rooms</span> and <span class="highlight">heal hearts</span> just by being
-                you.</p>
-
-            <p>No matter what happens tomorrow, you're already <span class="highlight">my champion</span>. But I know
-                you'll do amazing because that's who you are.</p>
+            <div class="card">
+                <div class="card-title">
+                    <span>Semester 2 Motivation</span>
+                </div>
+                <p>I know you're feeling anxious about tomorrow, but look at that doctor - they're calm because <span
+                        class="highlight">you're prepared</span>.</p>
+                <p>Remember all those nights you studied? That knowledge is <span class="heart-beat">♥</span> already in
+                    you!</p>
+                <p>When panic tries to creep in, take a deep breath and remember: <span class="highlight">I believe in
+                        you</span> completely.</p>
+            </div>
         </div>
 
-        <button class="btn" onclick="createHearts()">You've Got This!</button>
+        <!-- Page 3 -->
+        <div class="page">
+            <div class="card">
+                <div class="card-title">
+                    <span>Our 5 Months Together</span>
+                </div>
+                <p>As I count these 5 months of knowing you, I realize you're <span class="highlight">unlike
+                        anyone</span> I've ever met.</p>
+                <p>Your presence makes my world brighter in ways I can't explain. Every conversation, every shared
+                    laugh, every moment - they all mean so much.</p>
+            </div>
 
-        <div class="semester-box">
-            <p>Semester 2 begins <span class="semester">tomorrow</span> - your time to shine!</p>
-            <p class="calm-message">Breathe in... hold... exhale. You're ready. You're capable. You're extraordinary.
-            </p>
+            <div class="card">
+                <div class="card-title">
+                    <span>You're Going To Do Great</span>
+                </div>
+                <p>No matter what happens tomorrow, you're already <span class="highlight">my champion</span>.</p>
+                <p>But I know you'll do amazing because that's who you are - someone who turns challenges into
+                    victories.</p>
+                <p>Remember: <span class="highlight">One step at a time</span>. You've got this, Cutie Pie!</p>
+            </div>
+
+            <div class="signature">
+                Always Yours
+            </div>
         </div>
-
-        <div class="signature">Always Yours</div>
     </div>
 
     <script>
         // Create floating hearts
         function createHearts() {
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 5; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'floating-hearts';
                 heart.style.left = Math.random() * 100 + 'vw';
@@ -385,43 +410,70 @@
                 const animationDuration = 5 + Math.random() * 10;
                 heart.style.animation = `heart-float ${animationDuration}s linear forwards`;
 
-                // Create keyframes dynamically
-                const keyframes = `
-                    @keyframes heart-float {
-                        0% {
-                            transform: translateY(0) scale(${Math.random() * 0.5 + 0.5}) rotate(0deg);
-                            opacity: 1;
-                        }
-                        100% {
-                            transform: translateY(-100vh) scale(${Math.random() * 0.3 + 0.2}) rotate(${Math.random() * 360}deg);
-                            opacity: 0;
-                        }
-                    }
-                `;
-
-                const style = document.createElement('style');
-                style.innerHTML = keyframes;
-                document.head.appendChild(style);
-
                 document.body.appendChild(heart);
 
                 // Remove hearts after animation
                 setTimeout(() => {
                     heart.remove();
-                    style.remove();
                 }, animationDuration * 1000);
             }
-
-            // Show calming message
-            const messages = [
-                "You're more prepared than you think!",
-                "Trust in all the work you've done!",
-                "Your intelligence always shines through!",
-                "Panic is just excitement in disguise!",
-                "I believe in you completely!"
-            ];
-            alert(messages[Math.floor(Math.random() * messages.length)]);
         }
+
+        // Create music notes
+        function createMusicNotes() {
+            const notes = ['♪', '♫', '♩', '♬'];
+            for (let i = 0; i < 10; i++) {
+                const note = document.createElement('div');
+                note.className = 'music-note';
+                note.textContent = notes[Math.floor(Math.random() * notes.length)];
+                note.style.left = Math.random() * 100 + 'vw';
+                note.style.top = '80vh';
+                note.style.animationDelay = Math.random() * 2 + 's';
+                note.style.fontSize = (Math.random() * 20 + 20) + 'px';
+
+                document.body.appendChild(note);
+
+                setTimeout(() => {
+                    note.remove();
+                }, 4000);
+            }
+        }
+
+        // Gift box interaction
+        const giftBox = document.getElementById('giftBox');
+        const song = document.getElementById('song');
+        let songPlayed = false;
+
+        giftBox.addEventListener('click', function () {
+            if (!songPlayed) {
+                // First click - prepare
+                giftBox.innerHTML = `
+                    <div class="gift-lid"></div>
+                    <div class="gift-bow"></div>
+                    <div style="font-size: 1.5rem; color: white;">Open at 0:58</div>
+                `;
+                songPlayed = true;
+
+                // Start countdown
+                setTimeout(() => {
+                    song.play();
+                    createMusicNotes();
+                    giftBox.innerHTML = `
+                        <div style="font-size: 3rem; color: white;">♪</div>
+                        <div style="color: white; margin-top: 10px;">For you!</div>
+                    `;
+                    giftBox.style.background = 'linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%)';
+
+                    // Create hearts periodically while song plays
+                    const heartInterval = setInterval(createHearts, 1000);
+
+                    // Stop hearts when song ends
+                    song.onended = function () {
+                        clearInterval(heartInterval);
+                    };
+                }, 58000); // 58 seconds
+            }
+        });
 
         // Initialize floating hearts
         window.onload = function () {
@@ -431,8 +483,7 @@
             // Make doctor GIF interactive
             const doctor = document.querySelector('.doctor-gif');
             doctor.addEventListener('click', function () {
-                this.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDZ4Z2J0eGJ0d3FmY3R2eGx4ZzR2b2V5ZzN0dGZ6dW5xZ2JmZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HU7ZeB2lByWYZXS/giphy.gif";
-                alert("Deep breaths, beautiful. You've got this!");
+                createHearts();
             });
         };
     </script>
