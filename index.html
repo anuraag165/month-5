@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 Months of Knowing Someone Special</title>
+    <title>For Raveena - My Special Someone</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
 
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
             font-family: 'Montserrat', sans-serif;
             color: #333;
             min-height: 100vh;
@@ -22,7 +22,7 @@
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.97);
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             width: 90%;
@@ -31,7 +31,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #e0f2fe;
             transform: scale(0.95);
             animation: container-enter 1s ease-out forwards;
         }
@@ -44,7 +44,7 @@
 
         h1 {
             font-family: 'Dancing Script', cursive;
-            color: #667eea;
+            color: #3b82f6;
             font-size: 4rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -59,7 +59,7 @@
 
         .subtitle {
             font-size: 1.3rem;
-            color: #4a5568;
+            color: #4b5563;
             margin-bottom: 30px;
             animation: subtitle-fade 2s ease-in;
         }
@@ -76,33 +76,27 @@
             }
         }
 
-        .flower {
-            position: absolute;
-            background-size: contain;
-            background-repeat: no-repeat;
-            z-index: -1;
-            opacity: 0.7;
-            animation: flower-float 15s linear infinite;
+        .doctor-container {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: doctor-float 4s ease-in-out infinite alternate;
         }
 
-        @keyframes flower-float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
+        @keyframes doctor-float {
+            to {
+                transform: translateY(-10px);
             }
+        }
 
-            10% {
-                opacity: 0.7;
-            }
-
-            90% {
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: translateY(-20vh) rotate(360deg);
-                opacity: 0;
-            }
+        .doctor-gif {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .message {
@@ -151,7 +145,7 @@
         }
 
         .highlight {
-            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            background: linear-gradient(120deg, #3b82f6 0%, #8b5cf6 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -159,53 +153,8 @@
             padding: 0 3px;
         }
 
-        .photo-frame {
-            width: 220px;
-            height: 220px;
-            border-radius: 15px;
-            border: 4px solid #fff;
-            margin: 20px auto;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform-style: preserve-3d;
-            transition: all 0.5s ease;
-            animation: photo-enter 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        @keyframes photo-enter {
-            from {
-                transform: perspective(800px) rotateY(90deg) scale(0.5);
-                opacity: 0;
-            }
-
-            to {
-                transform: perspective(800px) rotateY(0deg) scale(1);
-                opacity: 1;
-            }
-        }
-
-        .photo-frame:hover {
-            transform: perspective(800px) rotateY(10deg) scale(1.03);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .photo-frame:hover img {
-            transform: scale(1.05);
-        }
-
         .btn {
-            background: linear-gradient(to right, #667eea, #764ba2);
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
             color: white;
             border: none;
             padding: 14px 30px;
@@ -214,7 +163,7 @@
             cursor: pointer;
             margin: 20px 0;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.4);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -237,30 +186,13 @@
 
         .btn:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
-        }
-
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, #764ba2, #667eea);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .btn:hover:before {
-            opacity: 1;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.6);
         }
 
         .signature {
             font-family: 'Dancing Script', cursive;
             font-size: 2.5rem;
-            background: linear-gradient(120deg, #667eea, #764ba2);
+            background: linear-gradient(120deg, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -280,39 +212,18 @@
         .semester-box {
             margin-top: 30px;
             font-size: 1.2rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e2e8f0 100%);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             padding: 20px;
             border-radius: 15px;
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
+            border: 1px solid #e0f2fe;
             position: relative;
             overflow: hidden;
         }
 
-        .semester-box:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(to bottom right,
-                    rgba(255, 255, 255, 0) 45%,
-                    rgba(255, 255, 255, 0.8) 50%,
-                    rgba(255, 255, 255, 0) 55%);
-            transform: rotate(30deg);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            to {
-                transform: translateX(100%) rotate(30deg);
-            }
-        }
-
         .semester {
             font-weight: bold;
-            color: #667eea;
+            color: #3b82f6;
             font-size: 1.3rem;
             position: relative;
             display: inline-block;
@@ -325,7 +236,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(to right, #667eea, #764ba2);
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
             transform: scaleX(0);
             transform-origin: left;
             animation: semester-underline 1s ease-out 4s forwards;
@@ -337,62 +248,79 @@
             }
         }
 
-        .grade {
+        .heart-beat {
             font-size: 2.5rem;
-            font-weight: bold;
-            background: linear-gradient(120deg, #f6d365, #fda085);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
             display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+            color: #ef4444;
             margin: 10px 0;
-            animation: grade-bounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
         }
 
-        @keyframes grade-bounce {
-            to {
-                transform: translateY(-15px) rotate(5deg);
-            }
-        }
-
-        .petal {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0;
-            z-index: -1;
-        }
-
-        .floating-text {
-            position: absolute;
-            font-family: 'Dancing Script', cursive;
-            color: rgba(102, 126, 234, 0.7);
-            font-size: 1.5rem;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0;
-            animation: floating-text 15s linear infinite;
-        }
-
-        @keyframes floating-text {
+        @keyframes heartbeat {
             0% {
-                transform: translateY(100vh) rotate(-10deg);
-                opacity: 0;
+                transform: scale(1);
             }
 
-            10% {
-                opacity: 0.7;
+            25% {
+                transform: scale(1.1);
             }
 
-            90% {
-                opacity: 0.7;
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.1);
             }
 
             100% {
-                transform: translateY(-20vh) rotate(10deg);
-                opacity: 0;
+                transform: scale(1);
+            }
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-hearts:before,
+        .floating-hearts:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 16px;
+            background: #fca5a5;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .floating-hearts:before {
+            left: 10px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .floating-hearts:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .calm-message {
+            font-size: 1.1rem;
+            color: #4b5563;
+            margin-top: 15px;
+            font-style: italic;
+            animation: calm-fade 2s ease-in 4s forwards;
+            opacity: 0;
+        }
+
+        @keyframes calm-fade {
+            to {
+                opacity: 1;
             }
         }
     </style>
@@ -401,123 +329,71 @@
 <body>
     <div class="container">
         <h1>Raveena Sharma</h1>
-        <div class="subtitle">5 Months of Knowing Someone Extraordinary ★</div>
+        <div class="subtitle">5 Months of Admiring Someone Extraordinary ✨</div>
 
-        <div class="photo-frame">
-            <!-- Replace with your actual image path -->
-            <img src="https://via.placeholder.com/220x220.png?text=Raveena+Sharma" alt="Raveena Sharma">
+        <div class="doctor-container">
+            <!-- Calming doctor GIF -->
+            <img class="doctor-gif"
+                src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDZ4Z2J0eGJ0d3FmY3R2eGx4ZzR2b2V5ZzN0dGZ6dW5xZ2JmZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HU7ZeB2lByWYZXS/giphy.gif"
+                alt="Calming Doctor">
         </div>
 
         <div class="message">
             <p>My dearest <span class="highlight">Cutie Pie</span>,</p>
 
-            <p>In these 5 months of knowing you, I've realized I've <span class="highlight">never met anyone like
-                    you</span> before. Your smile lights up rooms, your laughter is contagious, and your heart is pure
-                gold.</p>
+            <p>As I count these 5 months of knowing you, I realize you're <span class="highlight">unlike anyone</span>
+                I've ever met. Your presence makes my world brighter in ways I can't explain.</p>
 
-            <p>As you begin <span class="highlight">Year 5, Semester 2</span> tomorrow, I want you to know how
-                incredibly <span class="highlight">proud</span> I am of you. Last semester you were <span
-                    class="grade">A+</span> amazing, and I <span class="highlight">believe in you</span> even more this
-                time!</p>
+            <p>I know you're feeling anxious about tomorrow, but look at this doctor - they're calm because <span
+                    class="highlight">you're prepared</span>. Remember all those nights you studied? That knowledge is
+                <span class="heart-beat">♥</span> already in you!</p>
 
-            <p>You're the kind of person who makes everyone around you better just by being you. Your <span
-                    class="highlight">intelligence</span>, <span class="highlight">kindness</span>, and <span
-                    class="highlight">strength</span> inspire me daily. Whatever challenges come, remember: you've
-                already proven how <span class="highlight">capable</span> you are.</p>
+            <p>You're the most <span class="highlight">brilliant person</span> I know. That sharp mind of yours? It's
+                going to shine tomorrow. The way you <span class="highlight">care deeply</span> about everything? That's
+                your superpower.</p>
 
-            <p>Thank you for being my friend, for all the laughs, the deep talks, and for simply being <span
-                    class="highlight">you</span>. I cherish our connection more than words can say.</p>
+            <p>When panic tries to creep in, take a deep breath and remember: <span class="highlight">I believe in
+                    you</span> completely. Not just for exams - for everything. The way you <span
+                    class="highlight">light up rooms</span> and <span class="highlight">heal hearts</span> just by being
+                you.</p>
 
-            <p>Wishing you <span class="highlight">all the success</span> this semester brings. Go show them what
-                Raveena Sharma is made of!</p>
+            <p>No matter what happens tomorrow, you're already <span class="highlight">my champion</span>. But I know
+                you'll do amazing because that's who you are.</p>
         </div>
 
-        <button class="btn" onclick="bloomFlowers()">Bloom Some Flowers for You</button>
+        <button class="btn" onclick="createHearts()">You've Got This!</button>
 
         <div class="semester-box">
-            <p>Semester 2 starts <span class="semester">tomorrow</span> - your next chapter begins!</p>
-            <p>Remember: One step at a time. You've got this, Cutie Pie!</p>
+            <p>Semester 2 begins <span class="semester">tomorrow</span> - your time to shine!</p>
+            <p class="calm-message">Breathe in... hold... exhale. You're ready. You're capable. You're extraordinary.
+            </p>
         </div>
 
-        <div class="signature">Always Your Cheerleader</div>
+        <div class="signature">Always Yours</div>
     </div>
 
     <script>
-        // Create floating flowers
-        function createFlowers() {
-            const flowerTypes = [
-                '🌸', '🌺', '🌻', '🌼', '🌷', '💐', '🏵️', '🥀', '🌹', '🪷'
-            ];
-
+        // Create floating hearts
+        function createHearts() {
             for (let i = 0; i < 15; i++) {
-                const flower = document.createElement('div');
-                flower.className = 'flower';
-                flower.innerHTML = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
-                flower.style.left = Math.random() * 100 + 'vw';
-                flower.style.animationDuration = 10 + Math.random() * 20 + 's';
-                flower.style.animationDelay = Math.random() * 5 + 's';
-                flower.style.fontSize = 20 + Math.random() * 30 + 'px';
-                document.body.appendChild(flower);
-            }
-        }
+                const heart = document.createElement('div');
+                heart.className = 'floating-hearts';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '100vh';
+                heart.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
 
-        // Create floating motivational text
-        function createFloatingText() {
-            const texts = [
-                "You're amazing!",
-                "A+ Student!",
-                "So proud of you!",
-                "Best friend ever!",
-                "Semester 2 champion!",
-                "You've got this!",
-                "Raveena rocks!",
-                "Future superstar!"
-            ];
-
-            for (let i = 0; i < 8; i++) {
-                const text = document.createElement('div');
-                text.className = 'floating-text';
-                text.textContent = texts[i];
-                text.style.left = Math.random() * 100 + 'vw';
-                text.style.animationDuration = 15 + Math.random() * 15 + 's';
-                text.style.animationDelay = Math.random() * 10 + 's';
-                text.style.fontSize = 20 + Math.random() * 15 + 'px';
-                document.body.appendChild(text);
-            }
-        }
-
-        // Bloom flowers animation
-        function bloomFlowers() {
-            const container = document.querySelector('.container');
-            const colors = ['#ff6b6b', '#ffcc00', '#667eea', '#2dce89', '#f368e0'];
-            const flowerShapes = ['🌸', '🌺', '🌻', '🌼', '🌷', '🏵️'];
-
-            // Create petals
-            for (let i = 0; i < 50; i++) {
-                const petal = document.createElement('div');
-                petal.className = 'petal';
-                petal.innerHTML = flowerShapes[Math.floor(Math.random() * flowerShapes.length)];
-                petal.style.color = colors[Math.floor(Math.random() * colors.length)];
-                petal.style.left = Math.random() * 100 + '%';
-                petal.style.top = Math.random() * 100 + '%';
-                petal.style.fontSize = 20 + Math.random() * 30 + 'px';
-                petal.style.transform = `rotate(${Math.random() * 360}deg)`;
-
-                const animationDuration = 3 + Math.random() * 4;
-                petal.style.animation = `petal-fall ${animationDuration}s ease-out forwards`;
+                const animationDuration = 5 + Math.random() * 10;
+                heart.style.animation = `heart-float ${animationDuration}s linear forwards`;
 
                 // Create keyframes dynamically
                 const keyframes = `
-                    @keyframes petal-fall {
+                    @keyframes heart-float {
                         0% {
-                            transform: translate(0, 0) rotate(0deg) scale(0);
-                            opacity: 0;
-                        }
-                        10% {
-                            opacity: 0.9;
+                            transform: translateY(0) scale(${Math.random() * 0.5 + 0.5}) rotate(0deg);
+                            opacity: 1;
                         }
                         100% {
-                            transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 + 100}px) rotate(${Math.random() * 360}deg) scale(1);
+                            transform: translateY(-100vh) scale(${Math.random() * 0.3 + 0.2}) rotate(${Math.random() * 360}deg);
                             opacity: 0;
                         }
                     }
@@ -527,39 +403,39 @@
                 style.innerHTML = keyframes;
                 document.head.appendChild(style);
 
-                container.appendChild(petal);
+                document.body.appendChild(heart);
 
-                // Remove petals after animation
+                // Remove hearts after animation
                 setTimeout(() => {
-                    petal.remove();
+                    heart.remove();
                     style.remove();
                 }, animationDuration * 1000);
             }
 
-            // Show sweet message
+            // Show calming message
             const messages = [
-                "You're one of a kind, Raveena!",
-                "The world needs your light!",
-                "Semester 2 is lucky to have you!",
-                "You make everything beautiful!",
-                "Cutie Pie power! 💖"
+                "You're more prepared than you think!",
+                "Trust in all the work you've done!",
+                "Your intelligence always shines through!",
+                "Panic is just excitement in disguise!",
+                "I believe in you completely!"
             ];
             alert(messages[Math.floor(Math.random() * messages.length)]);
         }
 
-        // Initialize
+        // Initialize floating hearts
         window.onload = function () {
-            createFlowers();
-            createFloatingText();
+            // Initial floating hearts
+            setInterval(createHearts, 3000);
 
-            // Add slight delay to grade animation
-            const grade = document.querySelector('.grade');
-            setTimeout(() => {
-                grade.style.animation = 'grade-bounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate';
-            }, 1000);
+            // Make doctor GIF interactive
+            const doctor = document.querySelector('.doctor-gif');
+            doctor.addEventListener('click', function () {
+                this.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDZ4Z2J0eGJ0d3FmY3R2eGx4ZzR2b2V5ZzN0dGZ6dW5xZ2JmZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HU7ZeB2lByWYZXS/giphy.gif";
+                alert("Deep breaths, beautiful. You've got this!");
+            });
         };
     </script>
-    </head>
 </body>
 
 </html>
