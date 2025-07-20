@@ -306,8 +306,68 @@
             }
         }
 
-        .hidden {
+        .flower {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0;
+            animation: float-up 6s linear infinite;
+            z-index: 5;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-20vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .stop-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 10px;
             display: none;
+            transition: all 0.3s;
+        }
+
+        .stop-btn:hover {
+            background: #dc2626;
+        }
+
+        .movie-memory {
+            background: #f0fdf4;
+            border-left: 5px solid #10b981;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movie-memory:before {
+            content: '🎬';
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 1.5rem;
+            opacity: 0.2;
         }
     </style>
 </head>
@@ -320,8 +380,8 @@
             <div class="subtitle">5 Months of Knowing Someone Extraordinary ✨</div>
 
             <div class="doctor-container">
-                <img class="doctor-gif" src="https://media.giphy.com/media/l0HU7ZeB2lByWYZXS/giphy.gif"
-                    alt="Calming Doctor">
+                <!-- Local doctor.gif file -->
+                <img class="doctor-gif" src="doc.gif" alt="Calming Doctor">
             </div>
 
             <div class="card">
@@ -336,7 +396,10 @@
             <div class="gift-box" id="giftBox">
                 <div class="gift-lid"></div>
                 <div class="gift-bow"></div>
+                <div style="position: absolute; color: white; font-size: 0.9rem;">Start at 0:58</div>
             </div>
+
+            <button class="stop-btn" id="stopBtn">Stop Music</button>
 
             <audio id="song" src="song.mp3" preload="auto"></audio>
         </div>
@@ -356,6 +419,14 @@
                 </ul>
             </div>
 
+            <div class="movie-memory">
+                <p>I <span class="highlight">cherish</span> when we went to watch that movie together. Those shared
+                    moments mean the world to me, and I appreciate every second we spend together.</p>
+            </div>
+        </div>
+
+        <!-- Page 3 -->
+        <div class="page">
             <div class="card">
                 <div class="card-title">
                     <span>Semester 2 Motivation</span>
@@ -366,19 +437,6 @@
                     you!</p>
                 <p>When panic tries to creep in, take a deep breath and remember: <span class="highlight">I believe in
                         you</span> completely.</p>
-            </div>
-        </div>
-
-        <!-- Page 3 -->
-        <div class="page">
-            <div class="card">
-                <div class="card-title">
-                    <span>Our 5 Months Together</span>
-                </div>
-                <p>As I count these 5 months of knowing you, I realize you're <span class="highlight">unlike
-                        anyone</span> I've ever met.</p>
-                <p>Your presence makes my world brighter in ways I can't explain. Every conversation, every shared
-                    laugh, every moment - they all mean so much.</p>
             </div>
 
             <div class="card">
@@ -398,9 +456,30 @@
     </div>
 
     <script>
+        // Flower types
+        const flowerTypes = ['🌸', '🌺', '🌻', '🌼', '🌷', '🏵️', '🌹'];
+
+        // Create floating flowers
+        function createFlowers() {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.innerHTML = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = 4 + Math.random() * 8 + 's';
+            flower.style.animationDelay = Math.random() * 2 + 's';
+            flower.style.fontSize = (Math.random() * 20 + 20) + 'px';
+
+            document.body.appendChild(flower);
+
+            // Remove flower after animation
+            setTimeout(() => {
+                flower.remove();
+            }, 10000);
+        }
+
         // Create floating hearts
         function createHearts() {
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 3; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'floating-hearts';
                 heart.style.left = Math.random() * 100 + 'vw';
@@ -422,7 +501,7 @@
         // Create music notes
         function createMusicNotes() {
             const notes = ['♪', '♫', '♩', '♬'];
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 5; i++) {
                 const note = document.createElement('div');
                 note.className = 'music-note';
                 note.textContent = notes[Math.floor(Math.random() * notes.length)];
@@ -441,38 +520,48 @@
 
         // Gift box interaction
         const giftBox = document.getElementById('giftBox');
+        const stopBtn = document.getElementById('stopBtn');
         const song = document.getElementById('song');
-        let songPlayed = false;
+        let songInterval;
+        let flowerInterval;
 
         giftBox.addEventListener('click', function () {
-            if (!songPlayed) {
-                // First click - prepare
-                giftBox.innerHTML = `
-                    <div class="gift-lid"></div>
-                    <div class="gift-bow"></div>
-                    <div style="font-size: 1.5rem; color: white;">Open at 0:58</div>
-                `;
-                songPlayed = true;
+            // Start song from 58 seconds
+            song.currentTime = 58;
+            song.play();
 
-                // Start countdown
-                setTimeout(() => {
-                    song.play();
-                    createMusicNotes();
-                    giftBox.innerHTML = `
-                        <div style="font-size: 3rem; color: white;">♪</div>
-                        <div style="color: white; margin-top: 10px;">For you!</div>
-                    `;
-                    giftBox.style.background = 'linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%)';
+            // Change gift box appearance
+            giftBox.innerHTML = `
+                <div style="font-size: 3rem; color: white;">♪</div>
+                <div style="color: white; margin-top: 10px;">For you!</div>
+            `;
+            giftBox.style.background = 'linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%)';
 
-                    // Create hearts periodically while song plays
-                    const heartInterval = setInterval(createHearts, 1000);
+            // Show stop button
+            stopBtn.style.display = 'block';
 
-                    // Stop hearts when song ends
-                    song.onended = function () {
-                        clearInterval(heartInterval);
-                    };
-                }, 58000); // 58 seconds
-            }
+            // Create animations while song plays
+            createMusicNotes();
+            createFlowers();
+
+            // Create periodic animations
+            songInterval = setInterval(createMusicNotes, 3000);
+            flowerInterval = setInterval(createFlowers, 2000);
+
+            // Stop animations when song ends
+            song.onended = function () {
+                clearInterval(songInterval);
+                clearInterval(flowerInterval);
+                stopBtn.style.display = 'none';
+            };
+        });
+
+        // Stop button functionality
+        stopBtn.addEventListener('click', function () {
+            song.pause();
+            clearInterval(songInterval);
+            clearInterval(flowerInterval);
+            this.style.display = 'none';
         });
 
         // Initialize floating hearts
