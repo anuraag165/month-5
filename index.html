@@ -4,22 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Raveena - My Special Book</title>
+    <title>For Raveena - A Special Memory</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
 
         :root {
-            --primary: #3b82f6;
-            --secondary: #8b5cf6;
-            --accent: #ef4444;
+            --primary: #5b21b6;
+            --secondary: #7c3aed;
+            --accent: #10b981;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
             font-family: 'Montserrat', sans-serif;
-            color: #333;
+            color: #1e293b;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -27,94 +27,73 @@
             overflow-x: hidden;
         }
 
-        .book {
+        .memory-book {
             width: 95%;
             max-width: 800px;
-            perspective: 1500px;
             margin: 20px 0;
         }
 
         .page {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.97);
             border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             padding: 30px;
             margin-bottom: 30px;
-            transform-style: preserve-3d;
-            transition: transform 0.8s;
             position: relative;
             overflow: hidden;
-            border: 1px solid #e0f2fe;
-        }
-
-        .page:last-child {
-            margin-bottom: 0;
+            border: 1px solid #ddd6fe;
         }
 
         h1 {
             font-family: 'Dancing Script', cursive;
             color: var(--primary);
             font-size: 3rem;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-align: center;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 4rem;
-            }
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #4b5563;
+        .date-counter {
+            font-size: 1.1rem;
+            color: #64748b;
+            text-align: center;
             margin-bottom: 30px;
-            text-align: center;
+            font-weight: 600;
         }
 
         .card {
             background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid var(--primary);
-            transition: transform 0.3s;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary);
+            position: relative;
+            overflow: hidden;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(123, 97, 255, 0.03) 0%, rgba(139, 92, 246, 0.05) 100%);
+            z-index: 0;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
         }
 
         .card-title {
             color: var(--primary);
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
-        }
-
-        .card-title i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-
-        .doctor-container {
-            width: 100%;
-            max-width: 250px;
-            height: 250px;
-            margin: 20px auto;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .doctor-gif {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .highlight {
@@ -126,92 +105,47 @@
             padding: 0 3px;
         }
 
-        .heart-beat {
-            display: inline-block;
-            animation: heartbeat 1.5s ease-in-out infinite both;
-            color: var(--accent);
-            margin: 0 5px;
-        }
-
-        @keyframes heartbeat {
-            0% {
-                transform: scale(1);
-            }
-
-            25% {
-                transform: scale(1.1);
-            }
-
-            50% {
-                transform: scale(1);
-            }
-
-            75% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+        .gift-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
         }
 
         .gift-box {
-            width: 120px;
-            height: 120px;
-            margin: 30px auto;
-            background: linear-gradient(135deg, #fca5a5 0%, #fecaca 100%);
-            border-radius: 10px;
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(91, 33, 182, 0.2);
             transition: all 0.3s;
             overflow: hidden;
         }
 
         .gift-box:hover {
-            transform: scale(1.05);
-        }
-
-        .gift-box:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(to bottom right,
-                    rgba(255, 255, 255, 0) 45%,
-                    rgba(255, 255, 255, 0.8) 50%,
-                    rgba(255, 255, 255, 0) 55%);
-            transform: rotate(30deg);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            to {
-                transform: translateX(100%) rotate(30deg);
-            }
+            transform: scale(1.05) rotate(5deg);
         }
 
         .gift-lid {
             width: 100%;
-            height: 20px;
-            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+            height: 25px;
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
             position: absolute;
             top: 0;
             left: 0;
-            border-radius: 5px 5px 0 0;
+            border-radius: 8px 8px 0 0;
         }
 
         .gift-bow {
-            width: 40px;
-            height: 40px;
-            background: #fecaca;
+            width: 50px;
+            height: 50px;
+            background: #c4b5fd;
             position: absolute;
-            top: -20px;
+            top: -25px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 50%;
@@ -223,53 +157,115 @@
         .gift-bow:before {
             content: '';
             position: absolute;
-            width: 60px;
-            height: 20px;
-            background: #fca5a5;
-            border-radius: 10px;
+            width: 80px;
+            height: 25px;
+            background: #a78bfa;
+            border-radius: 12px;
         }
 
         .gift-bow:after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 60px;
-            background: #fca5a5;
-            border-radius: 10px;
+            width: 25px;
+            height: 80px;
+            background: #a78bfa;
+            border-radius: 12px;
         }
 
-        .floating-hearts {
+        .gift-text {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .flower {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: transparent;
+            font-size: 1.8rem;
+            opacity: 0;
+            z-index: 5;
+            animation: float-up 8s linear infinite;
             pointer-events: none;
-            z-index: 10;
         }
 
-        .floating-hearts:before,
-        .floating-hearts:after {
-            content: '';
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-20vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .memory-highlight {
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .memory-highlight:before {
+            content: '✨';
             position: absolute;
-            width: 10px;
-            height: 16px;
-            background: #fca5a5;
-            border-radius: 10px 10px 0 0;
+            right: 15px;
+            top: 15px;
+            font-size: 1.8rem;
+            opacity: 0.2;
         }
 
-        .floating-hearts:before {
-            left: 10px;
-            transform: rotate(-45deg);
-            transform-origin: 0 100%;
+        .doctor-container {
+            width: 100%;
+            max-width: 280px;
+            height: 280px;
+            margin: 25px auto;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
-        .floating-hearts:after {
-            left: 0;
-            transform: rotate(45deg);
-            transform-origin: 100% 100%;
+        .doctor-gif {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .signature {
+        .btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(91, 33, 182, 0.3);
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(91, 33, 182, 0.4);
+        }
+
+        .sign-off {
             font-family: 'Dancing Script', cursive;
             font-size: 2rem;
             color: var(--primary);
@@ -278,125 +274,117 @@
             padding-right: 20px;
         }
 
-        .music-note {
-            position: absolute;
-            font-size: 1.5rem;
-            color: var(--secondary);
-            opacity: 0;
-            animation: float-note 4s linear infinite;
-        }
-
-        @keyframes float-note {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 1;
-            }
-
-            90% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .flower {
-            position: absolute;
-            font-size: 1.5rem;
-            opacity: 0;
-            animation: float-up 6s linear infinite;
-            z-index: 5;
-        }
-
-        @keyframes float-up {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 0.8;
-            }
-
-            90% {
-                opacity: 0.8;
-            }
-
-            100% {
-                transform: translateY(-20vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
         .stop-btn {
             background: var(--accent);
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 8px 20px;
             border-radius: 20px;
             font-size: 0.9rem;
             cursor: pointer;
-            margin-top: 10px;
+            margin: 15px auto;
             display: none;
             transition: all 0.3s;
+            font-weight: 600;
         }
 
         .stop-btn:hover {
-            background: #dc2626;
+            background: #0d9488;
         }
 
-        .movie-memory {
-            background: #f0fdf4;
-            border-left: 5px solid #10b981;
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-            margin: 15px 0;
-            position: relative;
+        /* Themes */
+        .theme-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+            justify-content: center;
+        }
+
+        .theme-card {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
             overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
         }
 
-        .movie-memory:before {
-            content: '🎬';
+        .theme-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .theme-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .theme-label {
             position: absolute;
-            right: 10px;
-            top: 10px;
-            font-size: 1.5rem;
-            opacity: 0.2;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .page {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="book">
+    <div class="memory-book">
         <!-- Cover Page -->
         <div class="page" id="cover">
-            <h1>For Raveena</h1>
-            <div class="subtitle">5 Months of Knowing Someone Extraordinary ✨</div>
+            <h1>Raveena Sharma</h1>
+            <div class="date-counter">
+                Since February 21, 2025 • 5 Months of Wonderful Memories
+            </div>
 
             <div class="doctor-container">
-                <!-- Local doctor.gif file -->
                 <img class="doctor-gif" src="doc.gif" alt="Calming Doctor">
             </div>
 
             <div class="card">
-                <div class="card-title">
-                    <span>To My Cutie Pie</span>
+                <div class="card-content">
+                    <div class="card-title">
+                        To Someone Extraordinary
+                    </div>
+                    <p>As we mark this small milestone, I wanted to create something that shows how much our friendship
+                        means to me. Every day since we met has been better because you're in it.</p>
+                    <p>Here's a collection of memories, thoughts, and wishes for you as you begin this important
+                        semester.</p>
                 </div>
-                <p>This is just a small collection of thoughts, memories, and wishes for you as you begin this important
-                    semester.</p>
-                <p>Tap the gift box when you're ready for a surprise!</p>
             </div>
 
-            <div class="gift-box" id="giftBox">
-                <div class="gift-lid"></div>
-                <div class="gift-bow"></div>
-                <div style="position: absolute; color: white; font-size: 0.9rem;">Start at 0:58</div>
+            <div class="gift-container">
+                <div>
+                    <div class="gift-box" id="giftBox">
+                        <div class="gift-lid"></div>
+                        <div class="gift-bow"></div>
+                        <div style="position: absolute; color: white; font-size: 2rem;">🎁</div>
+                    </div>
+                    <div class="gift-text">Tap for a special surprise</div>
+                </div>
             </div>
 
             <button class="stop-btn" id="stopBtn">Stop Music</button>
@@ -407,57 +395,94 @@
         <!-- Page 2 -->
         <div class="page">
             <div class="card">
-                <div class="card-title">
-                    <span>My Favorite Things About You</span>
+                <div class="card-content">
+                    <div class="card-title">
+                        What I Admire About You
+                    </div>
+                    <ul style="line-height: 2; padding-left: 20px;">
+                        <li>Your <span class="highlight">brilliant mind</span> that never stops amazing me</li>
+                        <li>The <span class="highlight">kindness</span> you show to everyone around you</li>
+                        <li>Your <span class="highlight">determination</span> to achieve your dreams</li>
+                        <li>The way you <span class="highlight">light up</span> every room you enter</li>
+                        <li>Your <span class="highlight">strength</span> even when things get tough</li>
+                    </ul>
                 </div>
-                <ul style="line-height: 2;">
-                    <li>That <span class="highlight">brilliant mind</span> of yours</li>
-                    <li>How you <span class="highlight">care deeply</span> about everything</li>
-                    <li>Your <span class="highlight">contagious laughter</span></li>
-                    <li>The way you <span class="highlight">light up rooms</span></li>
-                    <li>Your <span class="highlight">determination</span> to succeed</li>
-                </ul>
             </div>
 
-            <div class="movie-memory">
-                <p>I <span class="highlight">cherish</span> when we went to watch that movie together. Those shared
-                    moments mean the world to me, and I appreciate every second we spend together.</p>
+            <div class="memory-highlight">
+                <p>I'll never forget when we went to watch that movie together. It's one of my favorite memories - just
+                    seeing you laugh and enjoy yourself meant the world to me. Those shared moments are what make our
+                    friendship so special.</p>
             </div>
         </div>
 
         <!-- Page 3 -->
         <div class="page">
             <div class="card">
-                <div class="card-title">
-                    <span>Semester 2 Motivation</span>
+                <div class="card-content">
+                    <div class="card-title">
+                        Semester 2 Motivation
+                    </div>
+                    <p>I know you're feeling anxious about tomorrow, but look at that doctor - that's <span
+                            class="highlight">your future self</span> looking back at you with pride.</p>
+                    <p>Remember all those nights you studied? All those challenges you overcame? That <span
+                            class="highlight">strength</span> is still there in you.</p>
+                    <p>When the pressure feels overwhelming, take a deep breath and remember:</p>
+                    <ul style="line-height: 2; padding-left: 20px;">
+                        <li>You're more <span class="highlight">prepared</span> than you think</li>
+                        <li>You've <span class="highlight">overcome</span> harder things before</li>
+                        <li>This is just <span class="highlight">one step</span> in your amazing journey</li>
+                    </ul>
                 </div>
-                <p>I know you're feeling anxious about tomorrow, but look at that doctor - they're calm because <span
-                        class="highlight">you're prepared</span>.</p>
-                <p>Remember all those nights you studied? That knowledge is <span class="heart-beat">♥</span> already in
-                    you!</p>
-                <p>When panic tries to creep in, take a deep breath and remember: <span class="highlight">I believe in
-                        you</span> completely.</p>
             </div>
 
+            <div class="theme-section">
+                <div class="theme-card">
+                    <img src="https://source.unsplash.com/random/300x300/?study" alt="Study Theme">
+                    <div class="theme-label">Future Doctor</div>
+                </div>
+                <div class="theme-card">
+                    <img src="https://source.unsplash.com/random/300x300/?friends" alt="Friends Theme">
+                    <div class="theme-label">Our Friendship</div>
+                </div>
+                <div class="theme-card">
+                    <img src="https://source.unsplash.com/random/300x300/?success" alt="Success Theme">
+                    <div class="theme-label">Your Success</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4 -->
+        <div class="page">
             <div class="card">
-                <div class="card-title">
-                    <span>You're Going To Do Great</span>
+                <div class="card-content">
+                    <div class="card-title">
+                        Why I Cherish Our Friendship
+                    </div>
+                    <p>In these 5 months, you've shown me what it means to be a <span class="highlight">truly good
+                            person</span>. Not a single day has passed where I regretted meeting you.</p>
+                    <p>You've taught me so much about:</p>
+                    <ul style="line-height: 2; padding-left: 20px;">
+                        <li><span class="highlight">Perseverance</span> through challenges</li>
+                        <li><span class="highlight">Compassion</span> for others</li>
+                        <li>The importance of <span class="highlight">staying true</span> to yourself</li>
+                    </ul>
+                    <p>I can't imagine my life without your friendship, and I promise to always be here to support you,
+                        just as you've supported me.</p>
                 </div>
-                <p>No matter what happens tomorrow, you're already <span class="highlight">my champion</span>.</p>
-                <p>But I know you'll do amazing because that's who you are - someone who turns challenges into
-                    victories.</p>
-                <p>Remember: <span class="highlight">One step at a time</span>. You've got this, Cutie Pie!</p>
             </div>
 
-            <div class="signature">
-                Always Yours
+            <button class="btn" id="specialBtn">You're Amazing</button>
+
+            <div class="sign-off">
+                With appreciation,<br>Your Friend
             </div>
         </div>
     </div>
 
     <script>
         // Flower types
-        const flowerTypes = ['🌸', '🌺', '🌻', '🌼', '🌷', '🏵️', '🌹'];
+        const flowerTypes = ['🌸', '🌺', '🌻', '🌼', '🌷', '🏵️', '🌹', '🪷', '💐', '🥀'];
 
         // Create floating flowers
         function createFlowers() {
@@ -465,64 +490,23 @@
             flower.className = 'flower';
             flower.innerHTML = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
             flower.style.left = Math.random() * 100 + 'vw';
-            flower.style.animationDuration = 4 + Math.random() * 8 + 's';
-            flower.style.animationDelay = Math.random() * 2 + 's';
-            flower.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            flower.style.animationDuration = 6 + Math.random() * 6 + 's';
+            flower.style.animationDelay = Math.random() * 3 + 's';
+            flower.style.fontSize = (Math.random() * 30 + 20) + 'px';
 
             document.body.appendChild(flower);
 
             // Remove flower after animation
             setTimeout(() => {
                 flower.remove();
-            }, 10000);
-        }
-
-        // Create floating hearts
-        function createHearts() {
-            for (let i = 0; i < 3; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'floating-hearts';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = '100vh';
-                heart.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
-
-                const animationDuration = 5 + Math.random() * 10;
-                heart.style.animation = `heart-float ${animationDuration}s linear forwards`;
-
-                document.body.appendChild(heart);
-
-                // Remove hearts after animation
-                setTimeout(() => {
-                    heart.remove();
-                }, animationDuration * 1000);
-            }
-        }
-
-        // Create music notes
-        function createMusicNotes() {
-            const notes = ['♪', '♫', '♩', '♬'];
-            for (let i = 0; i < 5; i++) {
-                const note = document.createElement('div');
-                note.className = 'music-note';
-                note.textContent = notes[Math.floor(Math.random() * notes.length)];
-                note.style.left = Math.random() * 100 + 'vw';
-                note.style.top = '80vh';
-                note.style.animationDelay = Math.random() * 2 + 's';
-                note.style.fontSize = (Math.random() * 20 + 20) + 'px';
-
-                document.body.appendChild(note);
-
-                setTimeout(() => {
-                    note.remove();
-                }, 4000);
-            }
+            }, 12000);
         }
 
         // Gift box interaction
         const giftBox = document.getElementById('giftBox');
         const stopBtn = document.getElementById('stopBtn');
         const song = document.getElementById('song');
-        let songInterval;
+        const specialBtn = document.getElementById('specialBtn');
         let flowerInterval;
 
         giftBox.addEventListener('click', function () {
@@ -531,26 +515,18 @@
             song.play();
 
             // Change gift box appearance
-            giftBox.innerHTML = `
-                <div style="font-size: 3rem; color: white;">♪</div>
-                <div style="color: white; margin-top: 10px;">For you!</div>
-            `;
-            giftBox.style.background = 'linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%)';
+            giftBox.innerHTML = '<div style="font-size: 2.5rem;">🎵</div>';
+            giftBox.style.background = 'linear-gradient(135deg, var(--accent) 0%, #34d399 100%)';
 
             // Show stop button
             stopBtn.style.display = 'block';
 
-            // Create animations while song plays
-            createMusicNotes();
+            // Create flower animations
             createFlowers();
-
-            // Create periodic animations
-            songInterval = setInterval(createMusicNotes, 3000);
-            flowerInterval = setInterval(createFlowers, 2000);
+            flowerInterval = setInterval(createFlowers, 800);
 
             // Stop animations when song ends
             song.onended = function () {
-                clearInterval(songInterval);
                 clearInterval(flowerInterval);
                 stopBtn.style.display = 'none';
             };
@@ -559,23 +535,38 @@
         // Stop button functionality
         stopBtn.addEventListener('click', function () {
             song.pause();
-            clearInterval(songInterval);
             clearInterval(flowerInterval);
             this.style.display = 'none';
         });
 
-        // Initialize floating hearts
+        // Special button
+        specialBtn.addEventListener('click', function () {
+            // Create burst of flowers
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    createFlowers();
+                }, i * 100);
+            }
+        });
+
+        // Initialize floating flowers
         window.onload = function () {
-            // Initial floating hearts
-            setInterval(createHearts, 3000);
+            // Initial floating flowers
+            setInterval(createFlowers, 1500);
 
             // Make doctor GIF interactive
             const doctor = document.querySelector('.doctor-gif');
             doctor.addEventListener('click', function () {
-                createHearts();
+                // Create burst of flowers
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        createFlowers();
+                    }, i * 100);
+                }
             });
         };
     </script>
+    </head>
 </body>
 
 </html>
