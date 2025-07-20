@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 Months With My Angel</title>
+    <title>5 Months of Wonderful Friendship</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
 
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             font-family: 'Montserrat', sans-serif;
             color: #333;
             min-height: 100vh;
@@ -22,7 +22,7 @@
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             width: 90%;
@@ -35,7 +35,7 @@
 
         h1 {
             font-family: 'Dancing Script', cursive;
-            color: #ff6b6b;
+            color: #5e72e4;
             font-size: 3.5rem;
             margin-bottom: 10px;
         }
@@ -46,24 +46,22 @@
             margin-bottom: 30px;
         }
 
-        .heart {
-            color: #ff6b6b;
+        .star {
+            color: #ffcc00;
             font-size: 2rem;
-            animation: pulse 1.5s infinite;
+            animation: twinkle 1.5s infinite alternate;
             display: inline-block;
         }
 
-        @keyframes pulse {
+        @keyframes twinkle {
             0% {
                 transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.3);
+                opacity: 0.7;
             }
 
             100% {
-                transform: scale(1);
+                transform: scale(1.3);
+                opacity: 1;
             }
         }
 
@@ -76,7 +74,7 @@
         }
 
         .highlight {
-            background-color: #fff2f2;
+            background-color: #f0f7ff;
             padding: 2px 5px;
             border-radius: 3px;
             font-weight: 600;
@@ -86,7 +84,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            border: 5px solid #ff6b6b;
+            border: 5px solid #5e72e4;
             margin: 20px auto;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -94,6 +92,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(5deg) scale(1.05);
         }
 
         .photo-frame img {
@@ -103,7 +106,7 @@
         }
 
         .btn {
-            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+            background: linear-gradient(to right, #5e72e4, #825ee4);
             color: white;
             border: none;
             padding: 12px 25px;
@@ -112,15 +115,15 @@
             cursor: pointer;
             margin: 20px 0;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 5px 15px rgba(94, 114, 228, 0.4);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+            box-shadow: 0 8px 20px rgba(94, 114, 228, 0.6);
         }
 
-        .floating-hearts {
+        .floating-stars {
             position: absolute;
             top: 0;
             left: 0;
@@ -130,16 +133,16 @@
             z-index: -1;
         }
 
-        .heart-shape {
+        .star-shape {
             position: absolute;
-            color: rgba(255, 107, 107, 0.5);
+            color: rgba(255, 204, 0, 0.6);
             font-size: 20px;
             animation: float-up 4s linear infinite;
         }
 
         @keyframes float-up {
             0% {
-                transform: translateY(100vh) scale(0);
+                transform: translateY(100vh) scale(0) rotate(0deg);
                 opacity: 0;
             }
 
@@ -148,7 +151,7 @@
             }
 
             100% {
-                transform: translateY(-20vh) scale(1);
+                transform: translateY(-20vh) scale(1) rotate(360deg);
                 opacity: 0;
             }
         }
@@ -156,94 +159,188 @@
         .signature {
             font-family: 'Dancing Script', cursive;
             font-size: 2rem;
-            color: #ff6b6b;
+            color: #5e72e4;
             margin-top: 20px;
         }
 
         .countdown {
             margin-top: 30px;
             font-size: 1.2rem;
+            background-color: #f8f9fe;
+            padding: 15px;
+            border-radius: 10px;
+            animation: pulse-bg 3s infinite;
         }
 
-        .days {
+        @keyframes pulse-bg {
+            0% {
+                background-color: #f8f9fe;
+            }
+
+            50% {
+                background-color: #e6e9ff;
+            }
+
+            100% {
+                background-color: #f8f9fe;
+            }
+        }
+
+        .semester {
             font-weight: bold;
-            color: #ff6b6b;
+            color: #5e72e4;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+        }
+
+        .grade-animation {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #5e72e4;
+            display: inline-block;
+            animation: grade-bounce 0.5s ease infinite alternate;
+        }
+
+        @keyframes grade-bounce {
+            to {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="floating-hearts" id="hearts-container"></div>
+        <div class="floating-stars" id="stars-container"></div>
 
-        <h1>Happy 5 Months!</h1>
-        <div class="subtitle">Since the day I met this beautiful soul <span class="heart">♥</span></div>
+        <h1>5 Months of Friendship!</h1>
+        <div class="subtitle">Since the day I met this amazing soul <span class="star">★</span></div>
 
         <div class="photo-frame">
             <!-- Replace with your actual image path -->
-            <img src="https://via.placeholder.com/200x200.png?text=My+Cutie+Pie" alt="My Angel">
+            <img src="https://via.placeholder.com/200x200.png?text=My+Wonderful+Friend" alt="My Special Friend">
         </div>
 
         <div class="message">
-            <p>My dearest,</p>
+            <p>Hey [Her Name],</p>
 
-            <p>Five months ago, my life changed forever when I met you. You came into my world like an <span
-                    class="highlight">angel</span>, bringing light to places I didn't even know were dark.</p>
+            <p>Five months ago, my life became brighter when our paths crossed. You've been such an <span
+                    class="highlight">incredible friend</span>, and I'm so grateful to know you.</p>
 
-            <p>I want to apologize for all my mistakes, for the times I might have hurt you or let you down. Through it
-                all, you've shown me what <span class="highlight">unconditional love</span> looks like by never giving
-                up on us. Your patience and understanding amaze me every single day.</p>
+            <p>I know Year 5, Semester 2 starts tomorrow - this is such a <span class="highlight">crucial time</span>!
+                But after seeing how amazingly you did last semester (<span class="grade-animation">A+</span> energy!),
+                I have absolutely no doubt you'll <span class="highlight">crush it</span> this semester too.</p>
 
-            <p>You are the most <span class="highlight">special person</span> I've ever known - kind, beautiful inside
-                and out, and with a heart so pure it takes my breath away. I wake up every morning grateful that you
-                chose to be with someone like me.</p>
+            <p>I want you to know that <span class="highlight">I believe in you</span> completely. Your intelligence,
+                dedication, and strength inspire me more than you realize. When things get tough, remember how capable
+                you are - you've got this!</p>
 
-            <p>These five months have been the <span class="highlight">happiest</span> of my life. Every moment with you
-                feels like a gift, every laugh we share is a treasure, and every challenge we've faced has only made us
-                stronger.</p>
+            <p>Thank you for being someone I can always count on, for the laughs we share, and for trusting me with your
+                friendship. I promise to always <span class="highlight">support you</span> and cheer you on, in
+                academics and in life.</p>
 
-            <p>I promise to keep growing, to keep loving you more each day, and to never take your love for granted.
-                <span class="highlight">I don't want to lose you</span> - not today, not ever. You're my heart, my home,
-                and my future.</p>
-
-            <p>Here's to many more months and years of love, laughter, and beautiful memories together.</p>
+            <p>Wishing you all the success, happiness, and wonderful moments this semester will bring. Go show them what
+                you're made of!</p>
         </div>
 
-        <button class="btn" onclick="showLove()">Click for more love</button>
+        <button class="btn" onclick="launchConfetti()">Click for Motivation!</button>
 
         <div class="countdown">
-            Looking forward to <span class="days">6 months</span> with you, my love!
+            <p>Semester 2 starts <span class="semester">tomorrow</span> - your next chapter of success begins!</p>
+            <p>Remember: One step at a time, one day at a time. You've already proven how brilliant you are.</p>
         </div>
 
-        <div class="signature">Forever Yours</div>
+        <div class="signature">Always cheering for you</div>
     </div>
 
     <script>
-        // Create floating hearts
-        function createHearts() {
-            const container = document.getElementById('hearts-container');
-            const heartCount = 15;
+        // Create floating stars
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const starCount = 20;
 
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart-shape');
-                heart.innerHTML = '♥';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = 3 + Math.random() * 7 + 's';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.fontSize = 10 + Math.random() * 20 + 'px';
-                container.appendChild(heart);
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star-shape');
+                star.innerHTML = '★';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.animationDuration = 3 + Math.random() * 7 + 's';
+                star.style.animationDelay = Math.random() * 5 + 's';
+                star.style.fontSize = 10 + Math.random() * 20 + 'px';
+                container.appendChild(star);
             }
         }
 
-        // Show love message
-        function showLove() {
-            alert("I love you more than words can say. Thank you for being you. ❤️");
+        // Launch confetti
+        function launchConfetti() {
+            const colors = ['#5e72e4', '#ffcc00', '#ff6b6b', '#2dce89'];
+            const container = document.querySelector('.container');
+
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.opacity = '1';
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+                const animationDuration = 2 + Math.random() * 3;
+                confetti.style.animation = `confetti-fall ${animationDuration}s linear forwards`;
+
+                // Create keyframes dynamically
+                const keyframes = `
+                    @keyframes confetti-fall {
+                        0% {
+                            transform: translateY(0) rotate(0deg);
+                            opacity: 1;
+                        }
+                        100% {
+                            transform: translateY(100vh) rotate(${Math.random() * 360}deg);
+                            opacity: 0;
+                        }
+                    }
+                `;
+
+                const style = document.createElement('style');
+                style.innerHTML = keyframes;
+                document.head.appendChild(style);
+
+                container.appendChild(confetti);
+
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                    style.remove();
+                }, animationDuration * 1000);
+            }
+
+            // Show motivational message
+            const messages = [
+                "You're going to do amazing things!",
+                "Your potential is limitless!",
+                "Semester 2 is yours to conquer!",
+                "A+ energy all the way!",
+                "The world needs your brilliance!"
+            ];
+            alert(messages[Math.floor(Math.random() * messages.length)]);
         }
 
         // Initialize
         window.onload = function () {
-            createHearts();
+            createStars();
+
+            // Add slight delay to grade animation
+            const grade = document.querySelector('.grade-animation');
+            setTimeout(() => {
+                grade.style.animation = 'grade-bounce 0.5s ease infinite alternate';
+            }, 1000);
         };
     </script>
 </body>
